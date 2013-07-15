@@ -1,13 +1,13 @@
 <?php
 
-namespace Core\Model\Hydrator;
+namespace Core\Entity\Hydrator;
 
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\Stdlib\Hydrator\HydratorInterface;
 use Zend\Stdlib\Hydrator\AbstractHydrator;
-use Core\Model\ModelInterface;
+use Core\Entity\EntityInterface;
 
-class ModelHydrator extends AbstractHydrator
+class EntityHydrator extends AbstractHydrator
 {
 	
 	public function __construct()
@@ -24,7 +24,7 @@ class ModelHydrator extends AbstractHydrator
      */
     public function extract ($object)
     {
-        if (!$object instanceOf ModelInterface) {
+        if (!$object instanceOf EntityInterface) {
             return array();
             //@todo Error-Handling
         }
@@ -53,7 +53,7 @@ class ModelHydrator extends AbstractHydrator
      */
     public function hydrate (array $data, $object)
     {
-        if (!$object instanceOf ModelInterface) {
+        if (!$object instanceOf EntityInterface) {
             return array();
             //@todo Error-Handling
         }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Model;
+namespace Core\Entity;
 
 interface DateFormatEnabledInterface
 {

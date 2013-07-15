@@ -7,24 +7,24 @@
  * @license   GPLv3
  */
 
-/** Core models */
-namespace Core\Model;
+/** Core Entitys */
+namespace Core\Entity;
 
-use Core\Model\Exception\OutOfBoundsException;
+use Core\Entity\Exception\OutOfBoundsException;
 
 /**
- * Concrete implementation of \Core\Model\ModelInterface.
+ * Concrete implementation of \Core\Entity\EntityInterface.
  * 
  * Provides some magic function for accessing properties
  * as class members, mirroring these calls to the
  * getter and setter methods.
  * 
  */
-abstract class AbstractModel implements ModelInterface
+abstract class AbstractEntity implements EntityInterface
 {
        
     /**
-     * Model id
+     * Entity id
      * 
      * @var mixed
      */
@@ -32,7 +32,7 @@ abstract class AbstractModel implements ModelInterface
     
     /**
      * {@inheritdoc}
-     * @see \Core\Model\ModelInterface::getId()
+     * @see \Core\Entity\EntityInterface::getId()
      */
     public function getId()
     {
@@ -41,8 +41,8 @@ abstract class AbstractModel implements ModelInterface
     
     /**
      * {@inheritdoc}
-     * @return \Core\Model\AbstractModel
-     * @see \Core\Model\ModelInterface::setId()
+     * @return \Core\Entity\AbstractEntity
+     * @see \Core\Entity\EntityInterface::setId()
      */
     public function setId($id)
     {
@@ -52,10 +52,10 @@ abstract class AbstractModel implements ModelInterface
     
     /**
      * {@inheritdoc}
-     * @return \Core\Model\AbstractModel
+     * @return \Core\Entity\AbstractEntity
      * @uses __set()
      * @throws OutOfBoundsException
-     * @see \Core\Model\ModelInterface::setData()
+     * @see \Core\Entity\EntityInterface::setData()
      */
     public function setData(array $data)
     {

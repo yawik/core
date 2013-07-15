@@ -1,9 +1,9 @@
 <?php
 
-namespace Core\Model\Hydrator\Strategy;
+namespace Core\Entity\Hydrator\Strategy;
 
 use Zend\Stdlib\Hydrator\Strategy\DefaultStrategy;
-use Core\Model\CollectionInterface;
+use Core\Entity\CollectionInterface;
 
 class ArrayToCollectionStrategy extends DefaultStrategy
 {
@@ -25,7 +25,7 @@ class ArrayToCollectionStrategy extends DefaultStrategy
     public function createCollection()
     {
         if (!$this->collectionPrototype) {
-            $this->setCollectionPrototype(new \Core\Model\Collection());
+            $this->setCollectionPrototype(new \Core\Entity\Collection());
         }
         return clone $this->collectionPrototype;
     }
@@ -36,7 +36,7 @@ class ArrayToCollectionStrategy extends DefaultStrategy
             return $value;
         }
         
-        return $this->createCollection()->addModels($value);
+        return $this->createCollection()->addEntities($value);
     }
     
 }

@@ -8,13 +8,13 @@
  */
 
 /** Core models */
-namespace Core\Model;
+namespace Core\Entity;
 
 
 /**
  * Model interface
  */
-interface ModelInterface 
+interface EntityInterface 
 {
 
     /**

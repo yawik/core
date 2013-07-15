@@ -1,8 +1,8 @@
 <?php
 
-namespace Core\Repository\MongoDb\Hydrator;
+namespace Core\Repository\Hydrator;
 
-class ModelHydrator extends \Core\Model\Hydrator\ModelHydrator
+class EntityHydrator extends \Core\Entity\Hydrator\EntityHydrator
 {
     
     public function extract($object)

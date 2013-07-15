@@ -1,8 +1,8 @@
 <?php
 
-namespace Core\Model;
+namespace Core\Entity;
 
-abstract class AbstractDateFormatEnabledModel extends AbstractModel implements DateFormatEnabledInterface
+abstract class AbstractDateFormatEnabledEntity extends AbstractEntity implements DateFormatEnabledInterface
 {
     
     public function __get($name)

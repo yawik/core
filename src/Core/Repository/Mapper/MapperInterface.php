@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Repository\MongoDb\Mapper;
+namespace Core\Repository\Mapper;
 
 interface MapperInterface
 {

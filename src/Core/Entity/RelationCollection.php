@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Model;
+namespace Core\Entity;
 
 class RelationCollection implements CollectionInterface, RelationCollectionInterface
 {
@@ -29,31 +29,31 @@ class RelationCollection implements CollectionInterface, RelationCollectionInter
         return $this;
     }
     
-    public function addModel(ModelInterface $model)
+    public function add(EntityInterface $entity)
     {
         $this->loadCollection();
-        $this->collection->addModel($model);
+        $this->collection->add($entity);
         return $this;
     }
     
-    public function removeModel($modelOrId)
+    public function remove($entityOrId)
     {
         $this->loadCollection();
-        $this->collection->removeModel($modelOrId);
+        $this->collection->remove($entityOrId);
+        return $this;
+    }
+    
+    public function removeEntities()
+    {
+        $this->loadCollection();
+        $this->collection->removeEntities();
         return $this;
     }
         
-    public function removeModels()
+    public function addEntities(array $entities)
     {
         $this->loadCollection();
-        $this->collection->removeModels();
-        return $this;
-    } 
-    
-    public function addModels(array $models)
-    {
-        $this->loadCollection();
-        $this->collection->addModels($models);
+        $this->collection->addModels($entities);
         return $this;
     }
     

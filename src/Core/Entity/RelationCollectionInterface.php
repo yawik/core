@@ -1,8 +1,8 @@
 <?php
 
-namespace Core\Model;
+namespace Core\Entity;
 
-use Core\Model\ModelInterface;
+use Core\Entity\EntityInterface;
 
 interface RelationCollectionInterface 
 {

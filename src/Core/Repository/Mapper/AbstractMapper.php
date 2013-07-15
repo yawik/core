@@ -8,9 +8,9 @@
  */
 
 /** Core MongoDb Mappers */
-namespace Core\Repository\MongoDb\Mapper;
+namespace Core\Repository\Mapper;
 
-use Core\Repository\MongoDb\Mapper\MapperInterface;
+use Core\Repository\Mapper\MapperInterface;
 
 
 /**

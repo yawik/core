@@ -1,19 +1,19 @@
 <?php
 
-namespace Core\Model\Hydrator;
+namespace Core\Entity\Hydrator;
 
 use Zend\Stdlib\Hydrator\AbstractHydrator;
-use Core\Model\CollectionInterface;
+use Core\Entity\CollectionInterface;
 
 class CollectionHydrator extends AbstractHydrator
 {
-    protected $modelHydrator;
+    protected $entityHydrator;
 	
-	public function __construct($modelHydrator, $modelPrototype)
+	public function __construct($entityHydrator, $entityPrototype)
 	{
 	    parent::__construct();
-	    $this->modelHydrator = $modelHydrator;
-	    $this->modelPrototype = $modelPrototype;
+	    $this->entityHydrator = $entityHydrator;
+	    $this->entityPrototype = $entityPrototype;
 	    $this->init();
 	}
 	
@@ -31,8 +31,8 @@ class CollectionHydrator extends AbstractHydrator
         }
         
         $result = array();
-        foreach ($object as $model) {
-            $result[] = $this->modelHydrator->extract($model);
+        foreach ($object as $entity) {
+            $result[] = $this->entityHydrator->extract($entity);
         }
         return $result;
                 
@@ -48,9 +48,9 @@ class CollectionHydrator extends AbstractHydrator
             //@todo Error-Handling
         }
 
-        foreach ($data as $modelData) {
-            $model = clone $this->modelPrototype;
-            $object->addModel($this->modelHydrator->hydrate($modelData, $model));
+        foreach ($data as $entityData) {
+            $entity = clone $this->entityPrototype;
+            $object->add($this->entityHydrator->hydrate($entityData, $entity));
         }
         return $object;
     }

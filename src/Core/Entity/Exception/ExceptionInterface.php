@@ -8,7 +8,7 @@
  */
 
 /** Core model exceptions */
-namespace Core\Model\Exception;
+namespace Core\Entity\Exception;
 
 /**
  * Core Model Exception Interface

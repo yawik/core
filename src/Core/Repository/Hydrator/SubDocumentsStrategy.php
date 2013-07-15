@@ -1,19 +1,19 @@
 <?php
 
-namespace Core\Repository\MongoDb\Hydrator;
+namespace Core\Repository\Hydrator;
 
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
-use Core\Mapper\MapperInterface;
-use Core\Model\ModelInterface;
-use Core\Model\CollectionInterface;
+
+use Core\Entity\ModelInterface;
+use Core\Entity\CollectionInterface;
 
 class SubDocumentsStrategy implements StrategyInterface
 {
-    protected $modelBuilder;
+    protected $entityBuilder;
     
-    public function __construct($modelBuilder)
+    public function __construct($entityBuilder)
     {
-        $this->modelBuilder = $modelBuilder;
+        $this->entityBuilder = $entityBuilder;
     }
     
 	/* (non-PHPdoc)
@@ -25,7 +25,7 @@ class SubDocumentsStrategy implements StrategyInterface
             return $value;
         }
 
-        return $this->modelBuilder->buildCollection($value);
+        return $this->entityBuilder->buildCollection($value);
     }
 
 	/* (non-PHPdoc)
@@ -33,18 +33,18 @@ class SubDocumentsStrategy implements StrategyInterface
      */
     public function extract ($value)
     {
-        if (!$value instanceOf \Core\Model\CollectionInterface) {
+        if (!$value instanceOf \Core\Entity\CollectionInterface) {
             // @todo Error Handling
             return $value;
         }
        
-        if ($value instanceOf \Core\Model\RelationCollectionInterface
+        if ($value instanceOf \Core\Entity\RelationCollectionInterface
             || !count($value)
         ) {
             return null;
         }
         
-        return $this->modelBuilder->unbuildCollection($value);
+        return $this->entityBuilder->unbuildCollection($value);
         
     }
     

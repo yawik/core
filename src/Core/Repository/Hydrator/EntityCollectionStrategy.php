@@ -1,13 +1,13 @@
 <?php
 
-namespace Core\Repository\MongoDb\Hydrator;
+namespace Core\Repository\Hydrator;
 
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 use Zend\Stdlib\Hydrator\HydratorInterface;
-use Core\Model\ModelInterface;
-use Core\Model\CollectionInterface;
+use Core\Entity\EntityInterface;
+use Core\Entity\CollectionInterface;
 
-class ModelCollectionStrategy implements StrategyInterface
+class EntityCollectionStrategy implements StrategyInterface
 {
     
     protected $collectionPrototype;
@@ -31,7 +31,7 @@ class ModelCollectionStrategy implements StrategyInterface
     public function createCollection()
     {
         if (!$this->collectionPrototype) {
-            $this->setCollectionPrototype(new \Core\Model\Collection());
+            $this->setCollectionPrototype(new \Core\Entity\Collection());
         }
         return clone $this->collectionPrototype;
     }
@@ -46,7 +46,7 @@ class ModelCollectionStrategy implements StrategyInterface
         }
         
         $collection = $this->createCollection();
-        $collection->addModels($value);
+        $collection->addEntities($value);
         return $collection;
         
     }
@@ -57,7 +57,7 @@ class ModelCollectionStrategy implements StrategyInterface
     public function extract ($value)
     {
         return $value;
-        if (!$value instanceOf \Core\Model\CollectionInterface) {
+        if (!$value instanceOf \Core\Entity\CollectionInterface) {
             // @todo Error Handling
             return $value;
         }
