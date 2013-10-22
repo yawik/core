@@ -33,4 +33,9 @@ class FileBuilderFactory implements FactoryInterface
         
         return $builder;
     }
+    
+    public function getHydrator()
+    {
+        
+    }
 }
