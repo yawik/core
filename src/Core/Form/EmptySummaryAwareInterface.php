@@ -8,14 +8,17 @@
  */
 
 /**  */ 
-namespace Core\Form\Element;
+namespace Core\Form;
 
 /**
  *
  *
  * @author Mathias Gelhausen <gelhausen@cross-solution.de>
  */
-class InfoCheckbox extends Checkbox implements ViewHelperProviderInterface
+interface EmptySummaryAwareInterface
 {
-    protected $helper = 'forminfocheckbox';
+    public function isSummaryEmpty();
+    public function getEmptySummaryNotice();
+    public function setEmptySummaryNotice($message);
+    
 }
